@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hệ thống ĐK BPBĐ và BTNN</title>
+    <link rel="stylesheet" href="styles.css?v=language-3" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+       <div class="brand">
+  <div class="brand-mark">
+    <img src="https://dktructuyen.moj.gov.vn/skin/frontend/rwd/default/images/str_logo.png" alt="Logo">
+  </div>
+
+  <div class="brand-text">
+    <strong>ĐK BPBĐ & BTNN </strong>
+    <span>Hệ thống nghiệp vụ hợp nhất </span>
+  </div>
+</div>
+        <nav id="moduleNav" class="module-nav" aria-label="Phân hệ"></nav>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Bộ Tư pháp</p>
+            <h1 id="pageTitle">Tổng quan hệ thống</h1>
+          </div>
+              <div class="auth-actions">
+      <button class="btn-login">Đăng nhập</button>
+      <button class="btn-register">Đăng ký</button>
+    </div>
+  </header>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <span>Tìm</span>
+              <input id="globalSearch" type="search" placeholder="Mã hồ sơ, người yêu cầu, nghiệp vụ..." />
+            </label>
+            <select id="roleSelect" aria-label="Vai trò">
+              <option>Quản trị hệ thống</option>
+              <option>Cán bộ tiếp nhận</option>
+              <option>Cán bộ nghiệp vụ</option>
+              <option>Lãnh đạo phê duyệt</option>
+              <option>Người dân / tổ chức</option>
+            </select>
+            <select id="languageSelect" aria-label="Ngôn ngữ">
+              <option value="vi">VI</option>
+              <option value="en">EN</option>
+            </select>
+          </div>
+        </header>
+
+        <section class="stats-grid" aria-label="Chỉ số nhanh">
+          <article>
+            <span>Hồ sơ đang xử lý</span>
+            <strong id="openCases">0</strong>
+            <small>ĐK BPBĐ, YCBT và yêu cầu cung cấp thông tin</small>
+          </article>
+          <article>
+            <span>Đã ký số</span>
+            <strong id="signedCases">0</strong>
+            <small>Văn bản chứng nhận, kết quả, thông báo</small>
+          </article>
+          <article>
+            <span>API liên thông</span>
+            <strong id="apiHealthy">0/0</strong>
+            <small>DVCQG, LGSP, EMC, PTGT, đất đai</small>
+          </article>
+          <article>
+            <span>Cảnh báo vận hành</span>
+            <strong id="alertCount">0</strong>
+            <small>An toàn thông tin, sao lưu, nhật ký</small>
+          </article>
+        </section>
+
+        <section class="content-layout">
+          <div class="primary-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow" id="moduleCode">I</p>
+                <h2 id="moduleName">Tổng quan</h2>
+              </div>
+              <div class="segmented" id="viewTabs" aria-label="Chế độ xem"></div>
+            </div>
+            <div id="moduleBody"></div>
+          </div>
+
+          <aside class="side-panel">
+            <section>
+              <h2>Luồng xử lý</h2>
+              <ol id="workflowList" class="workflow-list"></ol>
+            </section>
+            <section>
+              <h2>Nhật ký gần đây</h2>
+              <ul id="activityLog" class="activity-log"></ul>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="caseDialog">
+      <form method="dialog" id="caseForm">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">Tạo mới</p>
+            <h2 id="dialogTitle">Hồ sơ nghiệp vụ</h2>
+          </div>
+          <button class="icon-button" value="cancel" aria-label="Đóng" type="submit" formnovalidate>x</button>
+        </div>
+        <div class="form-grid">
+          <label>
+            Loại nghiệp vụ
+            <select name="type" required></select>
+          </label>
+          <label>
+            Người yêu cầu
+            <input name="requester" required placeholder="Cá nhân, tổ chức hoặc cơ quan" />
+          </label>
+          <label>
+            Cơ quan xử lý
+            <input name="agency" required placeholder="Trung tâm/Cục/Sở Tư pháp" />
+          </label>
+          <label>
+            Hạn xử lý
+            <input name="dueDate" type="date" required />
+          </label>
+          <label class="full-span attachment-field">
+            Tài liệu chứng minh
+            <input name="attachments" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" />
+            <span id="attachmentSummary">Chưa chọn tài liệu. Chấp nhận PDF, Word, Excel và hình ảnh.</span>
+          </label>
+          <label class="full-span">
+            Nội dung
+            <textarea name="summary" rows="4" required placeholder="Tóm tắt yêu cầu, tài sản, vụ việc hoặc báo cáo"></textarea>
+          </label>
+        </div>
+        <menu>
+          <button class="ghost-button" value="cancel" type="submit" formnovalidate>Hủy</button>
+          <button class="primary-button" value="default" type="submit">Lưu hồ sơ</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="app.js?v=language-3"></script>
+  </body>
+</html>
+
